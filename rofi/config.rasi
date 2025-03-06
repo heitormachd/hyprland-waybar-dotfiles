@@ -1,0 +1,185 @@
+/*
+* * * * * * * * * * * * * * * * * * * * * * * * *
+* Author: Eduardo de Sá Coêlho Ribeiro Costa   	*
+* Github: eduds08							   	*
+*											   	*
+* Rofi Version: 1.7.5						   	*
+* * * * * * * * * * * * * * * * * * * * * * * * *
+*/
+
+@import "./colors-rofi.rasi"
+
+/*-----Configuration-----*/
+
+configuration {
+	modes: "drun";
+	font: "Jetbrains Mono 12";
+	drun-display-format: "{name}";
+}
+
+/*-----Global-----*/
+
+* {
+	fg-highlight: @Text;
+
+	bg-entry: @Crust;
+	fg-entry: @Text;
+	fg-placeholder: #cba6f750;  // @Mauve with opacity
+
+	bg-listview: @Crust;
+	fg-element: @Overlay2;
+
+	bg-element-selected: @Base;
+	fg-element-selected: @Lavender;
+
+	border-color: @Lavender;
+
+    icon-size: 36px;
+
+	// border-radius
+    br: 10px;
+
+	border-size-window: 2px;
+	border-size-element-selected: 2px;
+
+	spacing: 0;
+}
+
+/*-----Main Window-----*/
+
+window {
+	transparency: "real";
+	background-color: transparent;
+
+	padding: 0;
+
+	children: [mainbox];
+
+	border: 0;
+
+	//border: @border-size-window;
+	border-radius: @br;
+	//border-color: @border-color;
+}
+
+/*-----Main Box-----*/
+
+mainbox {
+    children: [left-box, listview];
+    orientation: horizontal;
+}
+
+/*-----Input Bar-----*/
+
+left-box {
+	children: [inputbar];
+
+	background-image: url("~/RicingArts/panchiko.PNG", width);
+}
+
+inputbar {
+	//children: [entry, icon-inputbar];
+	children: [entry];
+
+	background-color: transparent;
+	border-radius: @br;
+}
+
+entry {
+	color: @fg-entry;
+	placeholder-color: @fg-placeholder;
+	background-color: @bg-entry;
+
+	placeholder: "D>E>A>T>H>M>E>T>A>L";
+
+	text-transform: bold;
+
+	//border-radius: 10px 0 0 10px;
+	border-radius: @br;
+
+	padding: 12px;
+	//margin: 10px 0 10px 15px;
+	margin: 10px;
+    
+	vertical-align: 0.5;
+
+	border: 0;
+	//border: 2px 0 2px 2px;
+	//border-color: @border-color;
+}
+
+//icon-inputbar {
+//	filename: "~/RicingArts/cat.png";
+//	size: @icon-size;
+//
+//	background-color: @bg-entry;
+//
+//	margin: 10 15 10 0;
+//	padding: 5 10 5 0;
+//
+//	expand: false;
+//
+//	border-radius: 0 10px 10px 0;
+//
+//	border: 0;
+//	//border: 2px 2px 2px 0;
+//	//border-color: @border-color;
+//}
+
+/*-----List View-----*/
+
+listview {
+	scrollbar: false;
+
+	// border: 0 0 0 2px;  // Removes the dashed line
+	border: 0;
+	//border-color: @border-color;
+	lines: 8;   // 8 elements "per page"
+
+	background-color: @bg-listview;
+
+	padding: 10px;
+}
+
+element {
+	children: [element-icon, element-text];
+	spacing: 10px;
+
+	border-radius: @br;
+}
+
+element-icon {
+	vertical-aling: 0.5;
+
+	margin: 0 0 0 10px;
+}
+
+element-text {
+	vertical-align: 0.5;
+	text-transform: bold;
+
+	border-radius: @br;
+
+	color: @fg-element;
+	highlight: @fg-highlight;
+
+	padding: 5px;
+	margin: 10px 10px 10px 0;
+}
+
+element selected.normal {
+	background-color: @bg-element-selected;
+
+	border: @border-size-element-selected;
+	border-color: @border-color;
+}
+
+element-text selected {
+	color: @fg-element-selected;
+	text-transform: bold;
+}
+
+element normal.normal,
+element alternate.normal {
+	background-color: transparent;
+}
