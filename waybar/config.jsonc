@@ -27,7 +27,7 @@
     ],
 
     "custom/archicon": {
-        "format": "<span size='15000'></span>",
+        "format": "",
         "tooltip": false,
         "on-click": "rofi -show drun"
     },
@@ -98,15 +98,14 @@
         "modules": [
             "bluetooth",
             "network",
-            "custom/lock",
             "custom/power"
         ]
     },
     "bluetooth": {
         "format-disabled": "",
-        "format-off": "<span size='15000'>󰂲</span>",
-        "format-on": "<span size='15000'>󰂯</span>",
-        "format-connected": "<span size='15000'>󰂱</span>",
+        "format-off": "󰂲",
+        "format-on": "󰂯",
+        "format-connected": "󰂱",
         "on-click-right": "bluetoothctl disconnect",
         "on-click": "kitty -e bluetoothctl",
         "tooltip-format-connected": "{device_alias}\t{device_address}"
