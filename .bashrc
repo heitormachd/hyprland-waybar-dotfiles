@@ -9,6 +9,8 @@ alias ls='eza'
 alias lsa='eza -lasnew'
 alias grep='grep --color=auto'
 
+alias mpvhdr='mpv --vo=gpu-next --target-colorspace-hint --gpu-api=vulkan --gpu-context=waylandvk'
+
 # Define color escape sequences
 RESET="\[\e[0m\]"    # Reset color
 BOLD="\[\e[1m\]"     # Bold text
