@@ -42,7 +42,7 @@
     },
     "custom/spotify": {
     	"format": "{}",
-   	    "exec": "/usr/bin/python3 /home/edudscrc/HyprlandScripts/mediaplayer.py --player spotify",
+   	    "exec": "/usr/bin/python3 ~/.config/waybar/assets/mediaplayer.py --player spotify",
    	    "return-type": "json",
    	    "on-click": "playerctl -p spotify play-pause",
    	    "on-scroll-up": "playerctl -p spotify next",
@@ -87,10 +87,10 @@
         "format-icons": {
             "default": ["", "", " "]
         },
-        "on-click": "~/HyprlandScripts/volume_notify.sh mute",
+        "on-click": "~/.config/waybar/assets/volume_notify.sh mute",
         "on-click-right": "pavucontrol",
-        "on-scroll-down": "~/HyprlandScripts/volume_notify.sh down",
-        "on-scroll-up": "~/HyprlandScripts/volume_notify.sh up",
+        "on-scroll-down": "~/.config/waybar/assets/volume_notify.sh down",
+        "on-scroll-up": "~/.config/waybar/assets/volume_notify.sh up",
         "tooltip": false
     },
     "group/group-end": {
