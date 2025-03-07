@@ -23,7 +23,8 @@
     "modules-right": [
         "temperature",
         "pulseaudio#sound",
-        "group/group-end"
+        "group/group-end",
+        "custom/power"
     ],
 
     "custom/archicon": {
@@ -97,9 +98,10 @@
         "orientation": "horizontal",
         "modules": [
             "bluetooth",
-            "network",
-            "custom/power"
-        ]
+            "custom/pipe",
+            "network"
+        ],
+        "spacing": 15
     },
     "bluetooth": {
         "format-disabled": "",
@@ -122,6 +124,10 @@
     	"format": "{icon}",
 		"format-icons": "",
 		"on-click": "wlogout",
+    	"tooltip": false
+    },
+    "custom/pipe": {
+    	"format": "|",
     	"tooltip": false
     }
 }

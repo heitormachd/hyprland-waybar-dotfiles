@@ -13,13 +13,13 @@
 @define-color network_idle #63BF7A;
 @define-color network_hover #B6F2D0;
 
-@define-color bluetooth_idle #966BF2;
+@define-color bluetooth_idle #63BF7A;
 @define-color bluetooth_hover #B6F2D0;
 
-@define-color sound_idle #63BF7A;
+@define-color sound_idle #966BF2;
 @define-color sound_hover #B6F2D0;
 
-@define-color temperature_idle #966BF2;
+@define-color temperature_idle #63BF7A;
 @define-color temperature_hover #B6F2D0;
 
 @define-color clock_idle #63BF7A;
@@ -201,7 +201,13 @@
 /*-----GROUP END-----*/
 
 #group-end  {
-	padding: 0 6px;
+}
+
+/*-----CUSTOM PIPE-----*/
+
+#custom-pipe {
+	font-size: 6px;
+	color: transparent;
 }
 
 /*-----BLUETOOTH-----*/
@@ -209,8 +215,8 @@
 #bluetooth {
 	color: @bluetooth_idle;
 
-	padding: 0 6px;
-	font-size: 20px;
+	padding: 0 3px 0 2px;
+	font-size: 19px;
 	transition: color 0.3s;
 }
 
@@ -224,9 +230,20 @@
 
 #network {
 	color: @network_idle;
-
-	padding: 0 6px;
+	
 	transition: color 0.3s;
+}
+
+#network.wifi {
+	padding: 0 10px 0 2px;
+}
+
+#network.ethernet {
+	padding: 0 2px 0 2px;
+}
+
+#network.disconnected {
+	padding: 0 6px 0 1px;
 }
 
 #network:hover {
@@ -240,7 +257,7 @@
 #custom-power {
 	color: @power_idle;
 
-	padding: 0 6px;
+	padding: 0 10px 0 6px;
 	transition: color 0.3s;
 }
 
