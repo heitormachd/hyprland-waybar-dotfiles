@@ -1,0 +1,164 @@
+/*
+* * * * * * * * * * * * * * * * * * * * * * * * *
+* Author: Eduardo de Sá Coêlho Ribeiro Costa   	*
+* Github: edudscrc							   	*
+*											   	*
+* Waybar v0.12.0						   	    *
+* * * * * * * * * * * * * * * * * * * * * * * * *
+*/
+
+{
+    "layer": "top",
+    "position": "left",
+    "mod": "dock",
+    "margin-left": 0,
+    "margin-right": 0,
+    "margin-top": 0,
+    "margin-bottom": 0,
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "reload_style_on_change": true,
+
+    "modules-left": [
+        "hyprland/workspaces",
+        "tray"
+    ],
+    "modules-center": [
+        "custom/spotify"
+    ],
+    "modules-right": [
+        "pulseaudio#sound",
+        "custom/wl-gammarelay-temperature",
+        "custom/brightness",
+        "bluetooth",
+        "network",
+        "clock",
+        "clock#2",
+        "custom/linuxicon"
+    ],
+    "custom/linuxicon": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "rofi -show drun"
+    },
+    "custom/wl-gammarelay-temperature": {
+        "format": "",
+        "tooltip": false,
+        "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +350",
+   	    "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -350",
+        "on-click": "busctl --user -- set-property rs.wl-gammarelay / rs.wl.gammarelay Temperature q 6500"
+    },
+    "custom/brightness": {
+        "format": "",
+        "tooltip": false,
+        "on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d +0.02",
+   	    "on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d -0.02",
+        "on-click": "busctl --user set-property rs.wl-gammarelay / rs.wl.gammarelay Brightness d 1"
+    },
+    "group/group-end": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/wl-gammarelay-temperature",
+            "custom/pipe",
+            "custom/brightness"
+        ],
+        "spacing": 15
+    },
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+        "default": "",
+        "active": ""
+        //"default": "○",
+        //"default": "●"
+        }
+    },
+
+    "custom/spotify": {
+        "rotate":90,
+   	    "exec": "/usr/bin/python3 ~/.config/waybar/assets/mediaplayer.py --player spotify",
+   	    "return-type": "json",
+   	    "on-click": "playerctl -p spotify play-pause",
+   	    "on-scroll-up": "playerctl -p spotify next",
+   	    "on-scroll-down": "playerctl -p spotify previous",
+        "escape": true,
+        "tooltip": true
+    },
+    "tray": {
+        "icon-size": 18,
+        "spacing": 6,
+        "tooltip": false
+    },
+
+    "clock": {
+        "format": "{:%H}",
+        "tooltip": false
+    },
+    "clock#2": {
+        "interval": 2,
+        "format": "{:%M}",
+        "tooltip": false
+    },
+    // "temperature": {
+    //     "hwmon-path": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon3/temp3_input",
+    // 	"interval": 2,
+    // 	"format": " {temperatureC}°C",
+    //     "on-click": "kitty -e btop",
+    // 	"tooltip": false
+    // },
+    "pulseaudio#sound": {
+	    "format": "{icon}",
+        "format-muted": "",
+        "format-icons": {
+            "default": ["", "", " "]
+        },
+        "on-click": "~/.config/waybar/assets/volume_notify.sh mute",
+        "on-click-right": "pavucontrol",
+        "on-scroll-down": "~/.config/waybar/assets/volume_notify.sh down",
+        "on-scroll-up": "~/.config/waybar/assets/volume_notify.sh up",
+        "tooltip": false
+    },
+    "group/group-end2": {
+        "orientation": "horizontal",
+        "modules": [
+            "bluetooth",
+            "custom/pipe",
+            "network"
+        ],
+        "spacing": 15
+    },
+    "bluetooth": {
+        "format-disabled": "",
+        "format-off": "󰂲",
+        "format-on": "󰂯",
+        "format-connected": "󰂱",
+        "on-click-right": "bluetoothctl disconnect",
+        "on-click": "kitty -e bluetui"
+    },
+    "network": {
+    	"interval": 60,
+        "format-wifi": "",
+        "format-ethernet": "",
+        "format-disconnected": "",
+        "on-click": "~/.config/waybar/assets/network_manager.sh",
+        "on-click-right": "nmcli connection delete \"$(nmcli -g NAME,TYPE connection show --active | awk -F: '$2==\"802-11-wireless\" {print $1}')\"",
+        "tooltip-format-ethernet": "{ifname}",
+        "tooltip-format-wifi": "{essid}"
+    },
+    "custom/power": {
+    	"format": "{icon}",
+		"format-icons": "",
+		"on-click": "wlogout",
+    	"tooltip": false
+    },
+    "custom/pipe": {
+    	"format": "|",
+    	"tooltip": false
+    },
+    "hyprland/language": {
+        "format": "{}",
+        "format-en": "en",
+        "format-pt": "pt"
+        }
+}

@@ -1,0 +1,312 @@
+/*
+* * * * * * * * * * * * * * * * * * * * * * * * *
+* Author: Eduardo de Sá Coêlho Ribeiro Costa   	*
+* Github: edudscrc							   	*
+*											   	*
+* Waybar v0.12.0						   	    *
+* * * * * * * * * * * * * * * * * * * * * * * * *
+*/
+
+@define-color power_idle #966BF2;
+@define-color power_hover #B6F2D0;
+
+@define-color network_idle #63BF7A;
+@define-color network_hover #B6F2D0;
+
+@define-color bluetooth_idle #63BF7A;
+@define-color bluetooth_hover #B6F2D0;
+
+@define-color sound_idle #966BF2;
+@define-color sound_hover #B6F2D0;
+
+@define-color temperature_idle #63BF7A;
+@define-color temperature_hover #B6F2D0;
+
+@define-color clock_idle #63BF7A;
+@define-color clock_hover #B6F2D0;
+
+@define-color spotify_idle #1DB954;
+@define-color spotify_hover #B6F2D0;
+
+@define-color linuxicon_idle #1793d0;
+@define-color linuxicon_hover #B6F2D0;
+
+@define-color tray_menu #1F1826;
+@define-color tray_menu_border #EEDCF2;
+@define-color tray_menu_item #966BF2;
+@define-color tray_menu_item_hover #B6F2D0;
+@define-color tray_menu_item_hover_background #966BF2;
+
+@define-color workspaces_button_idle #3A2C59;
+@define-color workspaces_button_hover #966BF2;
+
+@define-color tooltip_background #000000;
+@define-color tooltip_text #FFFFFF;
+
+@define-color modules_background #1F1826;
+@define-color modules_border #3A2C59;
+
+@define-color temperature_idle #E08805;
+@define-color temperature_hover #FFFF00;
+
+@define-color brightness_idle #E08805;
+@define-color brightness_hover #FFFF00;
+
+/*-----GLOBAL-----*/
+
+* {
+    font-family: "JetBrains Mono", "JetBrainsMono Nerd Font";
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+#waybar {
+	background-color: @modules_background;
+}
+
+.modules-left, .modules-center, .modules-right {
+	background-color: @modules_background;
+	/* border: 2px solid @modules_border;
+	border-radius: 6px; */
+
+	margin: 6px;
+
+	padding: 2px 6px;
+}
+
+/*-----ARCH ICON-----*/
+
+#custom-linuxicon {
+	color: @linuxicon_idle;
+
+	font-size: 25px;
+
+	padding: 0 6px;
+	transition: color 0.3s;
+}
+
+#custom-linuxicon:hover {
+	color: @linuxicon_hover;
+
+	transition: color 0.3s;
+}
+
+/*-----WORKSPACES-----*/
+
+#workspaces {
+
+}
+
+#workspaces button {
+	color: @workspaces_button_idle;
+
+	padding: 0 6px;
+	transition: color 0.3s;
+}
+
+#workspaces button.active {
+	color: @workspaces_button_hover;
+}
+
+#workspaces button:hover {
+	color: @workspaces_button_hover;
+
+	transition: color 0.3s;
+
+	background: none;
+	box-shadow: none;
+	text-shadow: none;
+	transition: none;
+	border-color: transparent;
+}
+
+/*-----CUSTOM SPOTIFY-----*/
+
+#custom-spotify {
+	color: @spotify_idle;
+
+	padding: 0 6px;
+	transition: color 0.3s;
+}
+
+#custom-spotify:hover {
+	color: @spotify_hover;
+
+	transition: color 0.3s;
+}
+
+/*-----TRAY-----*/
+
+#tray {
+	padding: 0 6px;
+}
+
+#tray menu {
+	background-color: @tray_menu;
+	border: 1px solid @tray_menu_border;
+	padding: 6px 0;
+}
+
+#tray menu menuitem {
+	color: @tray_menu_item;
+}
+
+#tray menu menuitem:hover {
+	color: @tray_menu_item_hover;
+	border: 0;
+	background-color: @tray_menu_item_hover_background;
+}
+
+/*-----CLOCK-----*/
+
+#clock {
+	color: @clock_idle;
+
+	padding: 0 6px;
+	transition: color 0.3s;
+}
+
+#clock:hover {
+	color: @clock_hover;
+
+	transition: color 0.3s;
+}
+
+/*-----TEMPERATURE-----*/
+
+#temperature {
+	color: @temperature_idle;
+
+	padding: 0 6px;
+	transition: color 0.3s;
+}
+
+#temperature:hover {
+	color: @temperature_hover;
+
+	transition: color 0.3s;
+}
+
+/*-----PULSEAUDIO VOLUME-----*/
+
+#pulseaudio.sound {
+	color: @sound_idle;
+
+	padding: 0 6px;
+	transition: color 0.3s;
+}
+
+#pulseaudio.sound:hover {
+	color: @sound_hover;
+
+	transition: color 0.3s;
+}
+
+/*-----GROUP END-----*/
+
+#group-end  {
+}
+
+/*-----CUSTOM PIPE-----*/
+
+#custom-pipe {
+	font-size: 6px;
+	color: transparent;
+}
+
+/*-----BLUETOOTH-----*/
+
+#bluetooth {
+	color: @bluetooth_idle;
+
+	padding: 0 3px 0 2px;
+	font-size: 19px;
+	transition: color 0.3s;
+}
+
+#bluetooth:hover {
+	color: @bluetooth_hover;
+
+	transition: color 0.3s;
+}
+
+/*-----NETWORK-----*/
+
+#network {
+	color: @network_idle;
+	
+	transition: color 0.3s;
+}
+
+#network.wifi {
+	padding: 0 10px 0 2px;
+}
+
+#network.ethernet {
+	padding: 0 2px 0 2px;
+}
+
+#network.disconnected {
+	padding: 0 6px 0 1px;
+}
+
+#network:hover {
+	color: @network_hover;
+
+	transition: color 0.3s;
+}
+
+/*-----CUSTOM POWER-----*/
+
+#custom-power {
+	color: @power_idle;
+
+	padding: 0 10px 0 6px;
+	transition: color 0.3s;
+}
+
+#custom-power:hover {
+	color: @power_hover;
+
+	transition: color 0.3s;
+}
+
+/*-----TOOLTIP-----*/
+
+tooltip {
+	background-color: @tooltip_background;
+}
+
+tooltip label {
+	color: @tooltip_text;
+}
+
+/*-----CUSTOM TEMPERATURE-----*/
+
+#custom-wl-gammarelay-temperature {
+	color: @temperature_idle;
+
+	padding: 0 10px 0 2px;
+	transition: color 0.3s;
+}
+#custom-wl-gammarelay-temperature:hover {
+	color: @temperature_hover;
+
+	transition: color 0.3s;
+}
+
+/*-----CUSTOM brighthness-----*/
+
+#custom-brightness {
+	color: @brightness_idle;
+
+	padding: 0 3px 0 2px;
+	transition: color 0.3s;
+}
+#custom-brighthness:hover {
+	color: @brightness_hover;
+
+	transition: color 0.3s;
+}
