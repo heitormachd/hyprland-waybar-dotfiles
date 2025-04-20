@@ -162,15 +162,26 @@
 /*-----CLOCK-----*/
 
 #clock {
-	color: @clock_idle;
+	color: @sound_idle;
 
 	padding: 0 6px;
 	transition: color 0.3s;
 }
 
-#clock:hover {
+/* #clock:hover {
 	color: @clock_hover;
 
+	transition: color 0.3s;
+} */
+
+#clock.4{
+	color: @clock_idle;
+	padding: 0 6px;
+	transition: color 0.3s;
+}
+#clock.5{
+	color: @clock_idle;
+	padding: 0 6px;
 	transition: color 0.3s;
 }
 
@@ -204,9 +215,13 @@
 	transition: color 0.3s;
 }
 
-/*-----GROUP END-----*/
+/*-----GROUP DATE-----*/
 
-#group-end  {
+#group-date  {
+	color: @sound_idle;
+
+	padding: 0 6px;
+	transition: color 0.3s;
 }
 
 /*-----CUSTOM PIPE-----*/
