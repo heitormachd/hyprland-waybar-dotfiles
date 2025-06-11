@@ -28,8 +28,8 @@
 @define-color spotify_idle #1DB954;
 @define-color spotify_hover #B6F2D0;
 
-@define-color archicon_idle #1793d0;
-@define-color archicon_hover #B6F2D0;
+@define-color linuxicon_idle #1793d0;
+@define-color linuxicon_hover #B6F2D0;
 
 @define-color tray_menu #1F1826;
 @define-color tray_menu_border #EEDCF2;
@@ -46,6 +46,12 @@
 @define-color modules_background #1F1826;
 @define-color modules_border #3A2C59;
 
+@define-color temperature_idle #E08805;
+@define-color temperature_hover #FFFF00;
+
+@define-color brightness_idle #E08805;
+@define-color brightness_hover #FFFF00;
+
 /*-----GLOBAL-----*/
 
 * {
@@ -57,13 +63,13 @@
 }
 
 #waybar {
-	background-color: @transparent;
+	background-color: @modules_background;
 }
 
 .modules-left, .modules-center, .modules-right {
 	background-color: @modules_background;
-	border: 2px solid @modules_border;
-	border-radius: 6px;
+	/* border: 2px solid @modules_border;
+	border-radius: 6px; */
 
 	margin: 6px;
 
@@ -72,17 +78,17 @@
 
 /*-----ARCH ICON-----*/
 
-#custom-archicon {
-	color: @archicon_idle;
+#custom-linuxicon {
+	color: @linuxicon_idle;
 
-	font-size: 20px;
+	font-size: 25px;
 
 	padding: 0 6px;
 	transition: color 0.3s;
 }
 
-#custom-archicon:hover {
-	color: @archicon_hover;
+#custom-linuxicon:hover {
+	color: @linuxicon_hover;
 
 	transition: color 0.3s;
 }
@@ -156,15 +162,26 @@
 /*-----CLOCK-----*/
 
 #clock {
-	color: @clock_idle;
+	color: @sound_idle;
 
 	padding: 0 6px;
 	transition: color 0.3s;
 }
 
-#clock:hover {
+/* #clock:hover {
 	color: @clock_hover;
 
+	transition: color 0.3s;
+} */
+
+#clock.4{
+	color: @clock_idle;
+	padding: 0 6px;
+	transition: color 0.3s;
+}
+#clock.5{
+	color: @clock_idle;
+	padding: 0 6px;
 	transition: color 0.3s;
 }
 
@@ -198,9 +215,13 @@
 	transition: color 0.3s;
 }
 
-/*-----GROUP END-----*/
+/*-----GROUP DATE-----*/
 
-#group-end  {
+#group-date  {
+	color: @sound_idle;
+
+	padding: 0 6px;
+	transition: color 0.3s;
 }
 
 /*-----CUSTOM PIPE-----*/
@@ -275,4 +296,32 @@ tooltip {
 
 tooltip label {
 	color: @tooltip_text;
+}
+
+/*-----CUSTOM TEMPERATURE-----*/
+
+#custom-wl-gammarelay-temperature {
+	color: @temperature_idle;
+
+	padding: 0 10px 0 2px;
+	transition: color 0.3s;
+}
+#custom-wl-gammarelay-temperature:hover {
+	color: @temperature_hover;
+
+	transition: color 0.3s;
+}
+
+/*-----CUSTOM brighthness-----*/
+
+#custom-brightness {
+	color: @brightness_idle;
+
+	padding: 0 3px 0 2px;
+	transition: color 0.3s;
+}
+#custom-brighthness:hover {
+	color: @brightness_hover;
+
+	transition: color 0.3s;
 }
